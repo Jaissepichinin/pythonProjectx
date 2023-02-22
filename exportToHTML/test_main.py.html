@@ -1,0 +1,163 @@
+<html>
+<head>
+<title>test_main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #ed864a;}
+.s1 { color: #ebebeb;}
+.s2 { color: #7ec3e6;}
+.s3 { color: #ed864a; font-weight: bold;}
+.s4 { color: #54b33e;}
+.s5 { color: #33ccff; font-weight: bold;}
+</style>
+</head>
+<body bgcolor="#131314">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+test_main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">pytest</span>
+
+    <span class="s2"># Cozinheiro - Definições</span>
+<span class="s0">def </span><span class="s1">somar_dois_numeros(num1</span><span class="s3">, </span><span class="s1">num2):</span>
+    <span class="s0">return </span><span class="s1">num1 + num2</span>
+
+<span class="s0">def </span><span class="s1">subtrair_dois_numeros(num1</span><span class="s3">, </span><span class="s1">num2):</span>
+    <span class="s0">return </span><span class="s1">num1 - num2</span>
+
+<span class="s0">def </span><span class="s1">multiplicar_dois_numeros(num1</span><span class="s3">, </span><span class="s1">num2):</span>
+    <span class="s0">return </span><span class="s1">num1 * num2</span>
+
+<span class="s0">def </span><span class="s1">dividir_dois_numeros(num1</span><span class="s3">, </span><span class="s1">num2):</span>
+    <span class="s0">return </span><span class="s1">num1 / num2</span>
+
+<span class="s0">def </span><span class="s1">dividir_dois_numeros(num1</span><span class="s3">, </span><span class="s1">num2):</span>
+    <span class="s0">try</span><span class="s1">:</span>
+        <span class="s0">return </span><span class="s1">num1 / num2</span>
+    <span class="s0">except </span><span class="s1">ZeroDivisionError:</span>
+        <span class="s0">return </span><span class="s4">'Nao é possivel dividir por zero'</span>
+
+
+<span class="s0">def </span><span class="s1">elevar_um_numero_pelo_outro(num1</span><span class="s3">, </span><span class="s1">num2):</span>
+    <span class="s0">return </span><span class="s1">num1 ** num2</span>
+
+    <span class="s2"># Calcular e testar a area de um quadrado</span>
+    <span class="s2"># Area = Lado</span>
+<span class="s0">def </span><span class="s1">area_do_quadrado(lado):</span>
+        <span class="s0">return </span><span class="s1">lado ** </span><span class="s5">2</span>
+
+    <span class="s2"># Calcular e testar a area de um retangulo</span>
+    <span class="s2"># Area = Lado 1 * Lado 2</span>
+<span class="s0">def </span><span class="s1">area_do_retangulo(largura</span><span class="s3">, </span><span class="s1">comprimento):</span>
+        <span class="s0">return </span><span class="s1">largura * comprimento</span>
+
+    <span class="s2"># Calcular e Testar a area de um triangulo</span>
+    <span class="s2"># area = lado 1 * lado 2/2</span>
+<span class="s0">def </span><span class="s1">area_do_triangulo(lado1</span><span class="s3">, </span><span class="s1">lado2):</span>
+    <span class="s0">return </span><span class="s1">lado1 * lado2/</span><span class="s5">2</span>
+
+<span class="s2">#Calcular a área de um circulo</span>
+<span class="s0">def </span><span class="s1">area_do_circulo(raio):</span>
+    <span class="s0">try</span><span class="s1">:</span>
+     <span class="s0">return </span><span class="s5">3.14 </span><span class="s1">* raio ** </span><span class="s5">2</span>
+    <span class="s0">except </span><span class="s1">TypeError:</span>
+     <span class="s0">return </span><span class="s4">'Falha no calculo - Raio não é um número'</span>
+
+<span class="s0">if </span><span class="s1">__name__ == </span><span class="s4">'__main__'</span><span class="s1">:</span>
+
+    <span class="s2">#Garcom - Requisicoes / Chamadas</span>
+    <span class="s1">resultado = somar_dois_numeros(</span><span class="s5">5</span><span class="s3">,</span><span class="s5">7</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s4">f'A soma é </span><span class="s0">{</span><span class="s1">resultado</span><span class="s0">}</span><span class="s4">'</span><span class="s1">) </span><span class="s2"># &lt;-- Prato</span>
+
+    <span class="s1">resultado = subtrair_dois_numeros(</span><span class="s5">7</span><span class="s3">,</span><span class="s5">5</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s4">f'A subtracao é </span><span class="s0">{</span><span class="s1">resultado</span><span class="s0">}</span><span class="s4">'</span><span class="s1">)</span>
+
+    <span class="s1">resultado = multiplicar_dois_numeros(</span><span class="s5">3</span><span class="s3">,</span><span class="s5">5</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s4">f'A multiplicacao é </span><span class="s0">{</span><span class="s1">resultado</span><span class="s0">}</span><span class="s4">'</span><span class="s1">)</span>
+
+    <span class="s1">resultado = dividir_dois_numeros(</span><span class="s5">8</span><span class="s3">,</span><span class="s5">0</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s4">f'A divisao é </span><span class="s0">{</span><span class="s1">resultado</span><span class="s0">}</span><span class="s4">'</span><span class="s1">)</span>
+
+    <span class="s1">resultado = elevar_um_numero_pelo_outro(</span><span class="s5">2</span><span class="s3">, </span><span class="s5">2</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s4">f'A exponenciação é </span><span class="s0">{</span><span class="s1">resultado</span><span class="s0">}</span><span class="s4">'</span><span class="s1">)</span>
+
+    <span class="s1">resultado = area_do_quadrado(</span><span class="s5">4</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s4">f'A área do quadrado é </span><span class="s0">{</span><span class="s1">resultado</span><span class="s0">}</span><span class="s4">'</span><span class="s1">)</span>
+
+    <span class="s1">resultado = area_do_retangulo(</span><span class="s5">3</span><span class="s3">, </span><span class="s5">4</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s4">f'A área do retangulo é </span><span class="s0">{</span><span class="s1">resultado</span><span class="s0">}</span><span class="s4">'</span><span class="s1">)</span>
+
+    <span class="s1">resultado = area_do_triangulo(</span><span class="s5">6</span><span class="s3">, </span><span class="s5">6</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s4">f'A área do triangulo é </span><span class="s0">{</span><span class="s1">resultado</span><span class="s0">}</span><span class="s4">'</span><span class="s1">)</span>
+
+    <span class="s1">resultado = area_do_circulo(</span><span class="s5">2</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s4">f'A área do circulo é </span><span class="s0">{</span><span class="s1">resultado</span><span class="s0">}</span><span class="s4">'</span><span class="s1">)</span>
+
+
+    <span class="s2">#Degustador / Teste</span>
+
+<span class="s0">def </span><span class="s1">test_somar_dois_numeros():</span>
+    <span class="s2"># - 1' Etapa : Configura / Prepara</span>
+    <span class="s2"># Dados / Valores</span>
+    <span class="s2"># Entradas / Input</span>
+    <span class="s1">num1 = </span><span class="s5">8</span>
+    <span class="s1">num2 = </span><span class="s5">9</span>
+    <span class="s2">#Saida / Output</span>
+    <span class="s1">resultado_esperado = </span><span class="s5">17</span>
+
+    <span class="s2"># - 2 ' Etapa: Executa</span>
+    <span class="s1">resultado_atual = somar_dois_numeros(num1</span><span class="s3">, </span><span class="s1">num2)</span>
+
+    <span class="s2"># - 3' Etapa: Confirma / Check / valida</span>
+    <span class="s0">assert </span><span class="s1">resultado_atual == resultado_esperado</span>
+
+<span class="s0">def </span><span class="s1">testar_elevar_um_numero_pelo_outro():</span>
+    <span class="s2"># 1ª Etapa - Configura / Prepara</span>
+    <span class="s2"># Dados / Valores</span>
+    <span class="s2"># Entradas / Inputs</span>
+    <span class="s1">num1 = </span><span class="s5">2</span>
+    <span class="s1">num2 = </span><span class="s5">2</span>
+    <span class="s2"># Saida / Output</span>
+    <span class="s1">resultado_esperado = </span><span class="s5">4</span>
+    <span class="s2"># 2ª Etapa - Executar</span>
+    <span class="s1">resultado_atual = elevar_um_numero_pelo_outro(num1</span><span class="s3">,</span><span class="s1">num2)</span>
+    <span class="s2"># 3ª Etapa - Confirma / Check / Valida</span>
+    <span class="s0">assert </span><span class="s1">resultado_atual == resultado_esperado</span>
+
+<span class="s0">def </span><span class="s1">testar_area_do_quadrado():</span>
+    <span class="s1">lado = </span><span class="s5">4</span>
+    <span class="s1">resultado_esperado = </span><span class="s5">16</span>
+    <span class="s1">resultado_atual = area_do_quadrado(lado)</span>
+    <span class="s0">assert </span><span class="s1">resultado_esperado == resultado_atual</span>
+
+<span class="s0">def </span><span class="s1">testar_area_do_retangulo():</span>
+    <span class="s1">largura = </span><span class="s5">3</span>
+    <span class="s1">comprimento = </span><span class="s5">4</span>
+    <span class="s1">resultado_esperado = </span><span class="s5">12</span>
+    <span class="s1">resultado_atual = area_do_retangulo(largura</span><span class="s3">,</span><span class="s1">comprimento)</span>
+    <span class="s0">assert </span><span class="s1">resultado_esperado == resultado_atual</span>
+
+<span class="s0">def </span><span class="s1">testar_area_do_triangulo():</span>
+    <span class="s1">lado1 = </span><span class="s5">6</span>
+    <span class="s1">lado2 = </span><span class="s5">6</span>
+    <span class="s1">resultado_esperado = </span><span class="s5">18</span>
+    <span class="s1">resultado_atual = area_do_triangulo(lado1</span><span class="s3">,</span><span class="s1">lado2)</span>
+    <span class="s0">assert </span><span class="s1">resultado_esperado == resultado_atual</span>
+
+<span class="s2">#anotacao para utilizar como massa de teste</span>
+<span class="s1">@pytest.mark.parametrize(</span><span class="s4">'raio,resultado_esperado'</span><span class="s3">,</span><span class="s1">[</span>
+    <span class="s2">#valores</span>
+    <span class="s1">(</span><span class="s5">1</span><span class="s3">,</span><span class="s5">3</span><span class="s1">)</span><span class="s3">, </span><span class="s2">#teste n 1</span>
+    <span class="s1">(</span><span class="s5">2</span><span class="s3">,</span><span class="s5">12</span><span class="s1">)</span><span class="s3">, </span><span class="s2">#teste n 2</span>
+    <span class="s1">(</span><span class="s5">3</span><span class="s3">,</span><span class="s5">28</span><span class="s1">)</span><span class="s3">, </span><span class="s2">#teste n 3</span>
+                         <span class="s1">])</span>
+<span class="s0">def </span><span class="s1">testar_area_do_circulo(raio</span><span class="s3">, </span><span class="s1">resultado_esperado):</span>
+        <span class="s2"># 1-Configura / comentamos para que os parametros sejam lidos</span>
+        <span class="s1">raio = </span><span class="s5">2</span>
+        <span class="s1">resultado_esperado = </span><span class="s5">12.56</span>
+        <span class="s2"># 2-Executa</span>
+        <span class="s1">resultado_atual = area_do_circulo(raio)</span>
+        <span class="s0">assert </span><span class="s1">resultado_esperado == resultado_atual</span></pre>
+</body>
+</html>
