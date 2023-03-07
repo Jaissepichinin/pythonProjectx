@@ -1,6 +1,4 @@
-import pytest
-
-    # Cozinheiro - Definições
+# Cozinheiro - Definições
 def somar_dois_numeros(num1, num2):
     return num1 + num2
 

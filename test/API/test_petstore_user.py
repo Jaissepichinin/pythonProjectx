@@ -63,3 +63,102 @@ def testar_consultar_usuario():
     assert corpo_da_resposta['username'] == username
     assert corpo_da_resposta['email'] == email
     assert corpo_da_resposta['phone'] == phone
+
+
+def testar_alterar_usuario():
+    # Configura
+    username = 'MMs'
+    status_code_esperado = 200
+    codigo_esperado = 200
+    tipo_esperado = 'unknown'
+    mensagem_esperada = '1009'
+
+    # Executa
+    resposta = requests.put(
+        url=f'{base_url}/{username}',
+        data=open('C:/Users/jaiss_f3yllmx/PycharmProjects/pythonProject2/test/db/user2.json', 'rb'),
+        headers=headers
+    )
+
+    # Formatacao
+    corpo_da_resposta = resposta.json()
+    print(resposta)
+    print(resposta.status_code)
+    print(corpo_da_resposta)
+
+    # validacao
+    assert resposta.status_code == status_code_esperado
+    assert corpo_da_resposta['code'] == codigo_esperado
+    assert corpo_da_resposta['type'] == tipo_esperado
+    assert corpo_da_resposta['message'] == mensagem_esperada
+
+
+def testar_excluir_usuario():
+    # Configura
+    username = 'MMs'
+    status_code_esperado = 200
+    codigo_esperado = 200
+    tipo_esperado = 'unknown'
+    mensagem_esperada = 'MMs'
+
+    # Executa
+    resposta = requests.delete(
+        url=f'{base_url}/{username}',
+        headers=headers
+    )
+    # Formatacao
+    match resposta.status_code:
+        case 200:  # apagar um usuario encontrado
+            corpo_da_resposta = resposta.json()
+            print(resposta)
+            print(resposta.status_code)
+            print(corpo_da_resposta)
+
+            # validacao
+            assert resposta.status_code == status_code_esperado
+            assert corpo_da_resposta['code'] == codigo_esperado
+            assert corpo_da_resposta['type'] == tipo_esperado
+            assert corpo_da_resposta['message'] == mensagem_esperada
+
+        case 400:  # apagar um usuario encontrado
+            print('username fornecido incorreto')
+
+        case 404:  # apagar um usuario encontrado
+            print('usuario nao encontrado')
+
+
+def testar_login_do_usuario():
+    # configura
+    username = 'MMs'
+    password = 'sucesso'
+    status_code_esperado = 200
+    codigo_esperado = 200
+    tipo_esperado = 'unknown'
+    inicio_mensagem_esperada = 'logged in user session:'
+
+    # executa
+    resposta = requests.get(
+        url=f'{base_url}/login?username={username}password={password}',
+        headers=headers
+    )
+
+    # formata
+    corpo_da_resposta = resposta.json()
+    print(resposta)
+    print(resposta.status_code)
+    print(corpo_da_resposta)
+
+    # valida
+    assert resposta.status_code == status_code_esperado
+    assert corpo_da_resposta['code'] == codigo_esperado
+    assert corpo_da_resposta['type'] == tipo_esperado
+    assert corpo_da_resposta['message'].find(inicio_mensagem_esperada) != -1
+
+    frase = 'Neste fim do ano planeje o seu sucesso'
+    assert frase.find('sucesso') != -1
+
+    # extrair
+    # na mensagem "logged in user session 1678120617502" queremos pegar os numeros
+    mensagem_recebida = corpo_da_resposta['message']
+    token_usuario = mensagem_recebida[76:75]
+    print(f'0 token do usuario é : {token_usuario}')
