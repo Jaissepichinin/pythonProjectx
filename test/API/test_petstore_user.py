@@ -68,40 +68,6 @@ def testar_consultar_usuario():
 
     print(f'Token: {token_usuario}')
 
-
-def testar_consultar_usuario_com_token(token_usuario):  # Configura
-    status_code = 200
-    id = 1008
-    username = 'MMs'
-    firstName = 'Minnie'
-    lastName = 'Mouses'
-    email = 'mms@teste.com'
-    password = 'dev'
-    phone = '999000'
-    userStatus = 0
-
-    # Executa
-    resposta = requests.get(
-        url=f'{base_url}/{username}',
-        headers=headers
-    )
-
-    # Formatacao
-    corpo_da_resposta = resposta.json()
-    print(resposta)  # resposta bruta
-    print(resposta.status_code)  # status code
-    print(corpo_da_resposta)  # resposta formatada
-
-    # Valida
-    assert resposta.status_code == status_code
-    assert corpo_da_resposta['id'] == id
-    assert corpo_da_resposta['username'] == username
-    assert corpo_da_resposta['email'] == email
-    assert corpo_da_resposta['phone'] == phone
-
-    print(f'Token: {token_usuario}')
-
-
 def testar_consultar_usuario_com_token(token_usuario):
     # Configura
     status_code = 200
