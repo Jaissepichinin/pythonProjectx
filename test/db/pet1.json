@@ -1,0 +1,18 @@
+{
+  "id": 10081,
+  "category": {
+    "id": 1,
+    "name": "dog"
+  },
+  "name": "Snoopy",
+  "photoUrls": [
+    "http://2.bp.blogspot.com/-27g_kiwhW3c/ULcWREXknqI/AAAAAAAAARg/8sL5um6ayls/s1600/Snoopy%2BWallpaper%2B1.jpg"
+  ],
+  "tags": [
+    {
+      "id": 9,
+      "name": "vacinado"
+    }
+  ],
+  "status": "available"
+}
